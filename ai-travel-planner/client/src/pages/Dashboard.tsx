@@ -226,7 +226,7 @@ const Dashboard = () => {
   }, [deleteTrip, setOptimisticTrips]);
 
   const handleShare = useCallback((shareId: string) => {
-    const frontendUrl = import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173";
+    const frontendUrl = window.location.origin;
     navigator.clipboard.writeText(
       `${frontendUrl}/share/${shareId}`
     );
