@@ -1,7 +1,7 @@
 node_modules/
 .env
-server/uploads/
-server/eng.traineddata
+ai-travel-planner/server/uploads/
+ai-travel-planner/server/eng.traineddata
 dist/
 build/
 .DS_Store
