@@ -48,7 +48,7 @@ export const useTripStore = create<TripState>((set, get) => ({
 
     set({ isLoading: true, error: "" });
     try {
-      const res = await axios.get(`${API}/itineraries`, {
+      const res = await axios.get(`${API_URL}/itineraries`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       set({ trips: res.data as TripRecord[], isLoading: false });
@@ -66,7 +66,7 @@ export const useTripStore = create<TripState>((set, get) => ({
     if (!token) return;
 
     try {
-      await axios.delete(`${API}/itineraries/${id}`, {
+      await axios.delete(`${API_URL}/itineraries/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const { fetchTrips } = get();
@@ -89,7 +89,7 @@ export const useTripStore = create<TripState>((set, get) => ({
       const formData = new FormData();
       formData.append("document", file);
 
-      await axios.post(`${API}/upload`, formData, {
+      await axios.post(`${API_URL}/upload`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       set({ isLoading: false });
