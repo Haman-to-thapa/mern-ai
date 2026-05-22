@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
-
-const API = "http://localhost:5000/api/auth";
+import { AUTH_API_URL } from "../config/api";
 
 interface AuthState {
   token: string | null;

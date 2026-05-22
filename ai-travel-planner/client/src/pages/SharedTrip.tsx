@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { API_URL } from "../config/api";
 
 type SharedItinerary = {
   destination?: string;
@@ -33,7 +34,7 @@ const SharedTrip = () => {
   const fetchTrip = useCallback(async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/share/${shareId}`
+        `${API_URL}/share/${shareId}`
       );
       setTrip(res.data);
     } catch (err: unknown) {

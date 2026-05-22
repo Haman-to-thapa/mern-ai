@@ -226,8 +226,9 @@ const Dashboard = () => {
   }, [deleteTrip, setOptimisticTrips]);
 
   const handleShare = useCallback((shareId: string) => {
+    const frontendUrl = import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173";
     navigator.clipboard.writeText(
-      `http://localhost:5173/share/${shareId}`
+      `${frontendUrl}/share/${shareId}`
     );
     alert("Share link copied");
   }, []);
